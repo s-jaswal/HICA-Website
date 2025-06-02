@@ -1,914 +1,682 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --mainColor: orange;
+    --black: --white;
+    --white: --black;
+    --whiteSmoke: #C4C3CA;
+    --shadow: 0px 4px 8px 0 rgba(21, 21, 21, .2);
+}
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.nav {
-    background: #222;
-    border-color: #080808;
-    color: #9d9d9d;
-    width: 100%;
-    /*  wrap for smaller, sticky on larger media  */
+::before,
+::after {
+    box-sizing: border-box;
 }
 
-
-ul.navlist {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: baseline;
-    align-content: space-around;
-    padding: 0 1rem 0 1rem;
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    background-color: var(--black);
 }
 
-.home {
-    flex-grow: 1;
-}
-
-.navitem {
-    padding: 2vh;
-}
-
-.navitem.donate {
-    color: #fff;
-    background-color: #5cb85c;
-}
-
-.navlist a {
-    color: inherit;
+a {
     text-decoration: none;
 }
 
-.navlist a:hover {
-    color: #fff;
+ul {
+    list-style: none;
 }
 
-main.main {}
-
-.wrapper {
-    max-width: 45em;
-    /*    3rem since headings add 1.5 on top */
-    margin: 1rem auto 2.5rem auto;
-}
-
-#hero {
-    background: url(https://www.mathjax.org/img/MJ-hero.jpg) no-repeat #332f30;
-    background-size: cover;
-    min-height: 50vh;
-    color: white;
-}
-
-#hero p {
-    font-size: 2em;
-    text-align: center;
-    padding-bottom: 0.5em;
-}
-
-#hero aside {
-    font-size: 1em;
-    max-width: 30em;
-}
-
-.hero-math {
-    font-size: 200%;
-}
-
-section:nth-child(2n+1) {
-    background: #eee;
+.container {
+    max-width: 1080px;
+    margin: auto;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
-    justify-content: space-around;
-    align-items: baseline;
-    align-content: space-around;
 }
 
-.blurb {
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.full-screen {
+    min-height: 100vh;
+    padding: 80px 0 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*NAV*/
+
+nav {
+    width: 100%;
+    background-color: var(--black);
+    position: fixed;
+    z-index: 999;
+    padding: 25px;
+}
+
+nav .logo {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+nav .logo span {
+    color: var(--mainColor);
+}
+
+nav .container {
+    padding: 0 25px;
+}
+
+nav .menu-btn i {
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+}
+
+nav ul {
     display: flex;
-    flex-direction: column;
-    max-width: 13rem;
-    margin: 1rem;
-}
-
-.artwork {
-    min-width: 20vh;
-    min-height: 20vh;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
-}
-
-footer {
-    display: block;
-    text-align: right;
-}
-
-.managers,
-.partners,
-.supporters {
     flex-wrap: wrap;
 }
 
-.managers .supporters>a {
-    width: 13rem;
-    margin: auto;
-    display: flex;
-    align-items: center;
+nav ul li {
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: var(--mainColor);
+    background: var(--white);
+}
+
+/*MAIN*/
+
+.left,
+.right {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 20px;
+}
+
+.left .line {
+    width: 15%;
+    height: 2px;
+    background-color: var(--mainColor);
+    display: inline-block;
+}
+
+.left h2 {
+    margin-top: 25px;
+    font-size: 50px;
+    color: var(--white);
+    line-height: 55px;
+}
+
+.left h2 span {
+    color: var(--mainColor);
+    font-size: 52px;
+}
+
+.left p {
+    color: var(--whiteSmoke);
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    height: 44px;
+    padding: 0px 30px;
+    background-color: var(--mainColor);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-flex;
     justify-content: center;
-    padding: 1rem;
+    align-items: center;
+    color: var(--white);
+    letter-spacing: 1px;
+    border: none;
+    margin-top: 15px;
+    box-shadow: 0px 8px 24px 0 rgba(228, 10, 57, .2);
+    transition: all .2s linear;
 }
 
-.supporters>a>img {
+.btn:hover {
+    background-color: var(--white);
+    color: var(--mainColor);
+    box-shadow: 0 8px 24px 0 rgba(138, 140, 146, .2);
+}
+
+.social-media {
+    margin-top: 60px;
+}
+
+.social-media a {
+    color: var(--white);
+    margin-right: 22px;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+.social-media a:hover {
+    color: var(--mainColor);
+}
+
+.form {
     width: 100%;
-    margin: auto;
-}
-
-.row .managers {
-    flex-basis: 40%;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
-.manager {
+.right h4 {
+    font-weight: 600;
+    color: var(--white);
+}
+
+.right h6 {
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
+.right h6 span {
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox:checked+label,
+.checkbox:not(:checked)+label {
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 60px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: var(--mainColor);
+    padding: 0;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.checkbox:checked+label::before,
+.checkbox:not(:checked)+label::before {
+    position: absolute;
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--mainColor);
+    background-color: var(--white);
+    font-family: 'Material Icons';
+    content: '\f1e2';
+    z-index: 20;
+    top: -10px;
+    left: -10px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.checkbox:checked+label::before {
+    transform: translateX(44px) rotate(-270deg);
+}
+
+.link {
+    color: var(--whiteSmoke);
+    margin-top: 20px;
+    display: block;
+}
+
+.link:hover {
+    color: var(--mainColor);
+}
+
+.card-3d-wrap {
+    position: relative;
+    width: 400px;
+    max-width: 100%;
+    height: 400px;
+    margin-top: 60px;
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.card-3d-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: all .6s ease-out;
+}
+
+.checkbox:checked~.card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    background-color: #1B1B1B;
+    background-image: url('https://i.postimg.cc/4dnZCH03/background.png');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 300%;
+    position: absolute;
+    border-radius: 6px;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.center-wrap {
+    position: absolute;
+    width: 100%;
+    padding: 0 35px;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 35px) perspective(100px);
+    display: block;
+    z-index: 20;
+}
+
+.heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.form-group {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group input::placeholder {
+    color: var(--whiteSmoke);
+    opacity: .7;
+    transition: all .2s linear;
+}
+
+.form-group input:focus::placeholder {
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.form-style {
+    padding: 13px 20px;
+    padding-left: 55px;
+    height: 48px;
+    width: 100%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: var(--whiteSmoke);
+    background-color: #242323;
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+.form-style:focus,
+.form-style:active {
+    border: none;
+    outline: none;
+    box-shadow: var(--shadow);
+}
+
+.input-icon {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    height: 48px;
+    font-size: 24px;
+    text-align: left;
+    color: var(--mainColor);
+    transition: all .2s linear;
+}
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 992px) {
+    nav .menu-btn i {
+        display: block;
+    }
+
+    nav .container {
+        padding: 0;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 85px;
+        left: -100%;
+        background-color: #1B1B1B;
+        height: 320px;
+        width: 100%;
+        display: block;
+        text-align: center;
+        transition: all .3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        font-size: 20px;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        background: none;
+        color: var(--mainColor);
+    }
+
+    .left h2 {
+        font-size: 40px;
+    }
+
+    .left h2 span {
+        font-size: 42px;
+    }
+
+    .left p {
+        font-size: 14px;
+    }
+
+    .card-3d-wrap {
+        width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .left,
+    .right {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .left {
+        display: grid;
+        place-items: center;
+        order: 2;
+    }
+
+    .right {
+        order: 1;
+    }
+
+    .left h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .left h2 {
+        font-size: 28px;
+    }
+
+    .left h2 span {
+        font-size: 30px;
+    }
+
+    .card-3d-wrap {
+        width: 300px;
+    }
+}
+
+/* css for one liner home page */
+.white-section {
     display: flex;
-    font-size: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(11, 17, 144, 0.155);
+    padding: 8rem;
+    gap: 2rem;
 }
 
-.manager>* {
-    flex-basis: 50%;
+.image-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    /* Optional: for rounded edges */
+    margin-left: 100px;
+    margin-right: 100px;
+
 }
 
-/*! Typebase.less v0.1.0 | MIT License */
-/* Setup */
-html {
-    /* Change default typefaces here */
-    font-family: serif;
-    font-size: 100%;
-    -webkit-font-smoothing: antialiased;
+.text-container h2 {
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
-/* Copy & Lists */
-p {
-    line-height: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0;
+.h3 {
+    text-align: center;
+    margin: 0;
+
 }
 
-ul li,
-ol li {
-    line-height: 1.5rem;
+/* one liner css end */
+
+/* next section on html page start */
+.blue-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #87CEEB;
+    /* Light blue */
+    padding: 8rem;
+    overflow: hidden;
+    /* Prevent overflow during animation */
 }
 
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-    margin-top: 0;
-    margin-bottom: 0;
+.text-slide,
+.image-slide {
+    opacity: 0;
+    animation: slideIn 1s forwards;
 }
 
-blockquote {
-    line-height: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+.text-slide {
+    transform: translateY(-100px);
+    /* Slide in from top */
+    animation-delay: 0.3s;
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    /* Change heading typefaces here */
-    font-family: sans-serif;
-    margin-top: 1.5rem;
-    line-height: 1.5rem;
+.image-slide {
+    transform: translateX(100px);
+    /* Slide in from right */
+    animation-delay: 0.6s;
 }
 
-/* h1 {
-    font-size: 4.242rem;
-    line-height: 4.5rem;
-    margin-top: 3rem;
-  } */
-h1 {
-    /*   used to be h2 */
-    font-size: 2.828rem;
-    line-height: 3rem;
-    margin-top: 3rem;
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.text-slide h2 {
+    font-weight: bold;
+}
+
+.image-slide img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    /* Optional */
+}
+
+
+/* next section css end */
+
+/* split screen css start */
+.split-screen {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 7rem;
+}
+
+.split {
+    flex: 1;
+    /* Each side takes 50% of the width */
+    padding: 3rem;
+}
+
+.left {
+    border-right: 2px solid #ccc;
+    /* Optional: Divider line between sections */
+}
+
+.right {
+    border-right: 2px solid #ccc;
+    /* Optional: Divider line between sections */
 }
 
 h2 {
-    /*   used to be h3 */
-    font-size: 1.414rem;
-    text-align: center;
-}
-
-h4 {
-    font-size: 0.707rem;
-}
-
-h5 {
-    font-size: 0.4713333333333333rem;
-}
-
-h6 {
-    font-size: 0.3535rem;
-}
-
-/* Tables */
-/* table {
-    margin-top: 1.5rem;
-    border-spacing: 0px;
-    border-collapse: collapse;
-  }
-  table td,
-  table th {
-    padding: 0;
-    line-height: 33px;
-  } */
-/* Code blocks */
-code {
-    vertical-align: bottom;
-}
-
-/* Leading paragraph text */
-/* .lead {
-    font-size: 1.414rem;
-  } */
-/* Hug the block above you */
-/* .hug {
-    margin-top: 0;
-  } */
-
-.blurb ul {
-    list-style: circle inside none;
-    margin-top: 0.5rem;
-}
-
-
-
-/* MathJax */
-.mjx-chtml {
-    display: inline-block;
-    line-height: 0;
-    text-indent: 0;
-    text-align: left;
-    text-transform: none;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 100%;
-    font-size-adjust: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    word-spacing: normal;
-    white-space: nowrap;
-    float: none;
-    direction: ltr;
-    max-width: none;
-    max-height: none;
-    min-width: 0;
-    min-height: 0;
-    border: 0;
-    margin: 0;
-    padding: 1px 0
-}
-
-.MJXc-display {
-    display: block;
-    text-align: center;
-    margin: 1em 0;
-    padding: 0
-}
-
-.mjx-chtml[tabindex]:focus,
-body :focus .mjx-chtml[tabindex] {
-    display: inline-table
-}
-
-.mjx-math {
-    display: inline-block;
-    border-collapse: separate;
-    border-spacing: 0
-}
-
-.mjx-math * {
-    display: inline-block;
-    text-align: left
-}
-
-.mjx-numerator {
-    display: block;
-    text-align: center
-}
-
-.mjx-denominator {
-    display: block;
-    text-align: center
-}
-
-.MJXc-stacked {
-    height: 0;
-    position: relative
-}
-
-.MJXc-stacked>* {
-    position: absolute
-}
-
-.MJXc-bevelled>* {
-    display: inline-block
-}
-
-.mjx-stack {
-    display: inline-block
-}
-
-.mjx-op {
-    display: block
-}
-
-.mjx-under {
-    display: table-cell
-}
-
-.mjx-over {
-    display: block
-}
-
-.mjx-over>* {
-    padding-left: 0px !important;
-    padding-right: 0px !important
-}
-
-.mjx-under>* {
-    padding-left: 0px !important;
-    padding-right: 0px !important
-}
-
-.mjx-stack>.mjx-sup {
-    display: block
-}
-
-.mjx-stack>.mjx-sub {
-    display: block
-}
-
-.mjx-prestack>.mjx-presup {
-    display: block
-}
-
-.mjx-prestack>.mjx-presub {
-    display: block
-}
-
-.mjx-delim-h>.mjx-char {
-    display: inline-block
-}
-
-.mjx-surd {
-    vertical-align: top
-}
-
-.mjx-mphantom * {
-    visibility: hidden
-}
-
-.mjx-merror {
-    background-color: #FFFF88;
-    color: #CC0000;
-    border: 1px solid #CC0000;
-    padding: 2px 3px;
-    font-style: normal;
-    font-size: 90%
-}
-
-.mjx-annotation-xml {
-    line-height: normal
-}
-
-.mjx-menclose>svg {
-    fill: none;
-    stroke: currentColor
-}
-
-.mjx-mtr {
-    display: table-row
-}
-
-.mjx-mlabeledtr {
-    display: table-row
-}
-
-.mjx-mtd {
-    display: table-cell;
-    text-align: center
-}
-
-.mjx-label {
-    display: block
-}
-
-.mjx-box {
-    display: inline-block
-}
-
-.mjx-block {
-    display: block
-}
-
-.mjx-span {
-    display: span
-}
-
-.mjx-char {
-    display: block;
-    white-space: pre
-}
-
-.mjx-itable {
-    display: inline-table
-}
-
-.mjx-row {
-    display: table-row
-}
-
-.mjx-cell {
-    display: table-cell
-}
-
-.mjx-table {
-    display: table;
-    width: 100%
-}
-
-.mjx-line {
-    display: block;
-    height: 0
-}
-
-.mjx-strut {
-    width: 0;
-    padding-top: 1em
-}
-
-.mjx-vsize {
-    width: 0
-}
-
-.MJXc-space1 {
-    margin-left: .167em
-}
-
-.MJXc-space2 {
-    margin-left: .222em
-}
-
-.MJXc-space3 {
-    margin-left: .278em
-}
-
-.mjx-ex-box-test {
-    position: absolute;
-    width: 1px;
-    height: 60ex
-}
-
-.MJXc-TeX-unknown-R {
-    font-family: monospace;
-    font-style: normal;
-    font-weight: normal
-}
-
-.MJXc-TeX-unknown-I {
-    font-family: monospace;
-    font-style: italic;
-    font-weight: normal
-}
-
-.MJXc-TeX-unknown-B {
-    font-family: monospace;
-    font-style: normal;
-    font-weight: bold
-}
-
-.MJXc-TeX-unknown-BI {
-    font-family: monospace;
-    font-style: italic;
-    font-weight: bold
-}
-
-.MJXc-TeX-ams-R {
-    font-family: MJXc-TeX-ams-R, MJXc-TeX-ams-Rw
-}
-
-.MJXc-TeX-cal-B {
-    font-family: MJXc-TeX-cal-B, MJXc-TeX-cal-Bx, MJXc-TeX-cal-Bw
-}
-
-.MJXc-TeX-frak-R {
-    font-family: MJXc-TeX-frak-R, MJXc-TeX-frak-Rw
-}
-
-.MJXc-TeX-frak-B {
-    font-family: MJXc-TeX-frak-B, MJXc-TeX-frak-Bx, MJXc-TeX-frak-Bw
-}
-
-.MJXc-TeX-math-BI {
-    font-family: MJXc-TeX-math-BI, MJXc-TeX-math-BIx, MJXc-TeX-math-BIw
-}
-
-.MJXc-TeX-sans-R {
-    font-family: MJXc-TeX-sans-R, MJXc-TeX-sans-Rw
-}
-
-.MJXc-TeX-sans-B {
-    font-family: MJXc-TeX-sans-B, MJXc-TeX-sans-Bx, MJXc-TeX-sans-Bw
-}
-
-.MJXc-TeX-sans-I {
-    font-family: MJXc-TeX-sans-I, MJXc-TeX-sans-Ix, MJXc-TeX-sans-Iw
-}
-
-.MJXc-TeX-script-R {
-    font-family: MJXc-TeX-script-R, MJXc-TeX-script-Rw
-}
-
-.MJXc-TeX-type-R {
-    font-family: MJXc-TeX-type-R, MJXc-TeX-type-Rw
-}
-
-.MJXc-TeX-cal-R {
-    font-family: MJXc-TeX-cal-R, MJXc-TeX-cal-Rw
-}
-
-.MJXc-TeX-main-B {
-    font-family: MJXc-TeX-main-B, MJXc-TeX-main-Bx, MJXc-TeX-main-Bw
-}
-
-.MJXc-TeX-main-I {
-    font-family: MJXc-TeX-main-I, MJXc-TeX-main-Ix, MJXc-TeX-main-Iw
-}
-
-.MJXc-TeX-main-R {
-    font-family: MJXc-TeX-main-R, MJXc-TeX-main-Rw
-}
-
-.MJXc-TeX-math-I {
-    font-family: MJXc-TeX-math-I, MJXc-TeX-math-Ix, MJXc-TeX-math-Iw
-}
-
-.MJXc-TeX-size1-R {
-    font-family: MJXc-TeX-size1-R, MJXc-TeX-size1-Rw
-}
-
-.MJXc-TeX-size2-R {
-    font-family: MJXc-TeX-size2-R, MJXc-TeX-size2-Rw
-}
-
-.MJXc-TeX-size3-R {
-    font-family: MJXc-TeX-size3-R, MJXc-TeX-size3-Rw
-}
-
-.MJXc-TeX-size4-R {
-    font-family: MJXc-TeX-size4-R, MJXc-TeX-size4-Rw
-}
-
-@font-face {
-    font-family: MJXc-TeX-ams-R;
-    src: local('MathJax_AMS'), local('MathJax_AMS-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-ams-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-cal-B;
-    src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')
-}
-
-@font-face {
-    font-family: MJXc-TeX-cal-Bx;
-    src: local('MathJax_Caligraphic');
-    font-weight: bold
-}
-
-@font-face {
-    font-family: MJXc-TeX-cal-Bw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-frak-R;
-    src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-frak-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-frak-B;
-    src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')
-}
-
-@font-face {
-    font-family: MJXc-TeX-frak-Bx;
-    src: local('MathJax_Fraktur');
-    font-weight: bold
-}
-
-@font-face {
-    font-family: MJXc-TeX-frak-Bw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-math-BI;
-    src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')
-}
-
-@font-face {
-    font-family: MJXc-TeX-math-BIx;
-    src: local('MathJax_Math');
     font-weight: bold;
-    font-style: italic
+    margin-bottom: 1rem;
 }
 
-@font-face {
-    font-family: MJXc-TeX-math-BIw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')
+p {
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-R;
-    src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')
+/* split screen css end */
+
+/* banner for other pages css start */
+/* Loaded body */
+body.loaded {
+    opacity: 1;
+    transition: 1s opacity;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')
+/* Default banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 40rem;
+    padding: 0 5%;
+    overflow: hidden;
+    backface-visibility: hidden;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-B;
-    src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')
+/* Default image container */
+.banner .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: translate3d(0, 0, 0) scale(1.25);
+    background: black url('banner.webp') no-repeat center center;
+    background-size: cover;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-Bx;
-    src: local('MathJax_SansSerif');
-    font-weight: bold
+/* Loaded image container */
+.loaded .banner .background {
+    transform: scale(1);
+    transition: 6.5s transform;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-Bw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')
+/* Other stuff */
+.banner h1 {
+    color: #EEE;
+    margin: 0;
+    line-height: 40rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 .3rem black;
+    font-size: 120px;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-I;
-    src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')
+main {
+    width: 90%;
+    margin: 5rem auto;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-Ix;
-    src: local('MathJax_SansSerif');
-    font-style: italic
+main p {
+    margin: 0 0 3rem 0;
 }
 
-@font-face {
-    font-family: MJXc-TeX-sans-Iw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')
+/* banner for other pages css end */
+
+/* css for schools page */
+img {
+    border: 1px solid #ddd;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded border */
+    padding: 8rem;
+    /* Some padding */
+    width: 150px;
+    /* Set a small width */
 }
 
-@font-face {
-    font-family: MJXc-TeX-script-R;
-    src: local('MathJax_Script'), local('MathJax_Script-Regular')
+/* Add a hover effect (blue shadow) */
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-@font-face {
-    font-family: MJXc-TeX-script-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')
+.h1 {
+    text-align: center;
+    font-size: 80px;
 }
 
-@font-face {
-    font-family: MJXc-TeX-type-R;
-    src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-type-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-cal-R;
-    src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-cal-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-B;
-    src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-Bx;
-    src: local('MathJax_Main');
-    font-weight: bold
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-Bw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-I;
-    src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-Ix;
-    src: local('MathJax_Main');
-    font-style: italic
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-Iw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-R;
-    src: local('MathJax_Main'), local('MathJax_Main-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-main-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-math-I;
-    src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')
-}
-
-@font-face {
-    font-family: MJXc-TeX-math-Ix;
-    src: local('MathJax_Math');
-    font-style: italic
-}
-
-@font-face {
-    font-family: MJXc-TeX-math-Iw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size1-R;
-    src: local('MathJax_Size1'), local('MathJax_Size1-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size1-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size2-R;
-    src: local('MathJax_Size2'), local('MathJax_Size2-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size2-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size3-R;
-    src: local('MathJax_Size3'), local('MathJax_Size3-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size3-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size4-R;
-    src: local('MathJax_Size4'), local('MathJax_Size4-Regular')
-}
-
-@font-face {
-    font-family: MJXc-TeX-size4-Rw;
-    src
-    /*1*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot');
-    src
-    /*2*/
-    : url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')
-}
+/* css for schools page end */
