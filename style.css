@@ -8,6 +8,12 @@
     --shadow: 0px 4px 8px 0 rgba(21, 21, 21, .2);
 }
 
+.questrial-regular {
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,8 +26,8 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
     font-size: 16px;
+    font-family: "Questrial", sans-serif;
     letter-spacing: 1px;
     font-weight: normal;
     background-color: var(--black);
@@ -763,7 +769,10 @@ img:hover {
 .h1 {
     text-align: center;
     font-size: 80px;
+
 }
+
+
 
 /* css for schools page end */
 
