@@ -568,7 +568,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(11, 17, 144, 0.155);
+    background-color: white;
     padding: 8rem;
     gap: 2rem;
 }
@@ -676,6 +676,7 @@ input[type="checkbox"] {
 h2 {
     font-weight: bold;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 p {
@@ -1172,3 +1173,178 @@ ul {
 
 
 /* contact page css end */
+
+/* values section start */
+/* values section start */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+
+/* New styles for the container */
+.circles-container {
+    display: flex;
+    /* Makes children display in a row */
+    justify-content: center;
+    /* Centers the circles horizontally */
+    align-items: flex-start;
+    /* Aligns items to the start of the cross-axis (top) */
+    flex-wrap: wrap;
+    /* Allows circles to wrap to the next line on smaller screens */
+    gap: 30px;
+    /* Adds space between the circles */
+    padding: 20px;
+    /* Add some padding around the container */
+    margin-top: 50px;
+    background-color: rgb(226, 203, 159);
+    /* Adjust margin from elements above */
+}
+
+.card-circle {
+    text-align: center;
+    /* margin-top: 50px; /* Remove or adjust, now handled by container */
+    background: #e45f18;
+    border: 10px solid transparent;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    /* Add generic fallback font */
+    padding: 50px;
+    border-radius: 50%;
+    /* Define a base width and height that works for all screens */
+    width: 300px;
+    /* Example base size */
+    height: 300px;
+    /* Example base size */
+    display: flex;
+    /* Use flexbox for internal content alignment */
+    flex-direction: column;
+    /* Stack content vertically */
+    justify-content: center;
+    /* Center content vertically inside the circle */
+    align-items: center;
+    /* Center content horizontally inside the circle */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+}
+
+.card-circle .card-title {
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 10px;
+    /* Add space below title */
+}
+
+.card-circle .card-text {
+    font-weight: 400;
+    margin-bottom: 20px;
+    /* Add space below text */
+}
+
+.card-circle .card-icon i {
+    font-size: 60px;
+    display: block;
+    /* Ensures it takes up its own line */
+    margin-bottom: 20px;
+    /* Space between icon and title/text */
+}
+
+.card-circle:nth-child(2) {
+    background: #142850;
+    /* Remove specific margin-left and z-index here */
+    /* box-shadow: 1px 2px 20px 8px rgba(241, 235, 235, 0.12); /* Keep if desired for this specific card */
+    /* transform: scale(1.2); /* Keep if desired for this specific card */
+}
+
+.card-circle .btn {
+    font-family: 'Montserrat', sans-serif;
+    /* Add generic fallback font */
+    background: transparent;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    padding: 5px 30px;
+    border-radius: 0px;
+    font-weight: 600;
+}
+
+.card-circle .btn,
+.card-circle .card-icon i,
+.card-circle {
+    transition: all ease-in-out 0.2s;
+}
+
+.card-circle:hover .btn {
+    background: #ee823a;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.card-circle .btn:hover {
+    transform: scale(1.1);
+}
+
+.card-circle:hover {
+    border: 10px solid #f2d29a;
+}
+
+.card-circle:hover i {
+    text-shadow: 0px -1px 10px #eec08c;
+    transform: scale(1.2) rotate(20deg);
+}
+
+/* Responsive adjustments */
+@media only screen and (min-width: 1200px) {
+    .card-circle {
+        width: 400px;
+        height: 400px;
+        /* Remove or adjust individual margins and z-index */
+        /* margin-left: auto; /* Reset any previous negative margins */
+        /* z-index: auto; /* Reset z-index */
+    }
+
+    /* If you still want the second card to be slightly larger, keep its transform */
+    .card-circle:nth-child(2) {
+        transform: scale(1.1);
+        /* Slightly adjust scale if needed for visual hierarchy */
+    }
+
+    .card-circle .card-icon i {
+        margin-top: 0;
+        /* Reset this if you previously had negative margin-top */
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1200px) {
+    .card-circle {
+        width: 340px;
+        height: 340px;
+        /* Remove or adjust individual margins and z-index */
+        /* margin-left: auto; */
+        /* z-index: auto; */
+    }
+
+    .card-circle .card-icon i {
+        font-size: 50px;
+        margin-top: 0;
+        /* Reset negative margin-top */
+    }
+}
+
+/* For smaller screens, allow them to stack */
+@media only screen and (max-width: 990px) {
+    .circles-container {
+        flex-direction: column;
+        /* Stack circles vertically */
+        align-items: center;
+        /* Center them when stacked */
+    }
+
+    .card-circle {
+        width: 90%;
+        /* Make them take up more width */
+        max-width: 350px;
+        /* Limit max width for readability */
+        height: 350px;
+        /* Adjust height for stacking */
+        margin-bottom: 30px;
+        /* Add space between stacked circles */
+    }
+}
+
+/* values section end */
